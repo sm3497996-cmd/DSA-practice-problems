@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int reverse(int n) {
+    int revNum = 0;
+    while(n != 0){ // jb tk n= 0 ke equal ni ata tb tk chlega
+    int digit = n%10;
+    if(revNum > INT_MAX/10 || revNum< INT_MIN/10){ // if range se bahar chla gya to ya range se kam hogy to jb revNum*10 krrhe to yhi pe agr range se bahar to int max /10 krdo aise to *10 and /10 jada ni hoga
+        return 0;
+    }
+    revNum =revNum * 10 + digit;
+    n = n/10;
+    }
+
+    return revNum;
+    }
+};
