@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int i = s.size()-1, count = 0;
+        while(i>=0 && s[i] == ' '){ // agr hmra string ke idx space ke equal to chi se ek kam krdo i ko to string le word m ajyege
+            i--;
+        }
+        while(i>=0 && s[i] != ' '){ // and isme jb tk i 0 ke equal ni ata and agr space bhi ni h to count ko bdha to ek and i ko -- krdo
+            count++;
+            i--;
+        }
+        return count;
+    }
+};
