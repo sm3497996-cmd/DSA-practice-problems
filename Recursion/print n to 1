@@ -1,0 +1,21 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// print n to 1
+void printNums(int n)
+{
+    if (n == 1)
+    {
+        cout << "1\n";
+        return;
+    }
+
+    cout << n << " "; // n to 1 val print n to print hogy ab n-1 ked liye call then print then n-2 ke liye aise 1 tk
+    printNums(n - 1);
+}
+int main()
+{
+    printNums(4);
+       return 0;
+}
