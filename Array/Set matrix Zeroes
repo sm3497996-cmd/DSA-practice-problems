@@ -1,0 +1,27 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        vector<int> row(m,0); // m row ke liye arr bnai 0 se start
+        vector<int> col(n,0);
+
+        for(int i=0; i<m;i++){
+            for(int j=0; j<n; j++){
+                if(matrix[i][j] == 0){
+                    row[i] = 1; // 1st row m 0 mila vo mark krli usko 0 krna h
+                    col[j] = 1; //1st col. mark us col ko 0 krna h
+                }
+            }
+        }
+         for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(row[i] == 1 || col[j] == 1) {  // jo mark ki thi row 1 and col 1 unko 0 krdo i,j dono ko
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+    }
+};
