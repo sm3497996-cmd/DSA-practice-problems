@@ -1,0 +1,26 @@
+class Solution {
+public:
+
+void mergesort(vector<vector<int>>& intervals, vector<vector<int>>&ans){
+if(intervals.empty()){
+    return;
+}
+    ans.push_back(intervals[0]);
+    for(int i=1; i<intervals.size(); i++){
+         vector<int> current = intervals[i];
+    vector<int>& last = ans.back();
+   if( current[0] <= last[1]){
+   last[1] = max(last[1], current[1]);
+   }else{
+    ans.push_back(current);
+   }
+    }
+}
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>>ans;
+        mergesort(intervals, ans);
+        return ans;
+
+    }
+};
