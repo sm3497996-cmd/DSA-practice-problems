@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int minimumRecolors(string blocks, int k) {
+        int n = blocks.size();
+        int black = 0;
+        int ans = INT_MAX;
+
+        // First window
+        for (int i = 0; i < k; i++) {
+            if (blocks[i] == 'B')
+                black++;
+        }
+
+        ans = k - black;
+
+        // Slide the window
+        for (int i = k; i < n; i++) {
+
+            // Add new block
+            if (blocks[i] == 'B')
+                black++;
+
+            // Remove old block
+            if (blocks[i - k] == 'B')
+                black--;
+
+            int white = k - black;
+            ans = min(ans, white);
+        }
+
+        return ans;
+    }
+};
